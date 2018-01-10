@@ -1,0 +1,73 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-kapt'
+
+apply plugin: 'kotlin-android-extensions'
+
+apply plugin: 'realm-android'
+
+android {
+
+    compileSdkVersion 27
+    buildToolsVersion '27.0.1'
+
+    defaultConfig {
+        applicationId "com.brandonhogan.liftscout"
+        minSdkVersion 20
+        targetSdkVersion 27
+        versionCode 1
+        versionName "0.0.1"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        vectorDrawables.useSupportLibrary = true
+
+    }
+
+    buildTypes {
+
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+kapt {
+    generateStubs = true
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation"org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+
+    implementation support.appcompat
+
+    // architecture components
+    implementation libraries.archLifecycle
+    implementation libraries.archLifecycleExt
+    kapt libraries.archLifecycleComp
+
+    implementation libraries.gson
+    implementation libraries.timber
+
+    implementation libraries.dagger
+    implementation libraries.daggerSupport
+    kapt libraries.daggerAnnotation
+    kapt libraries.daggerApt
+
+    // rx
+    implementation libraries.rx2Java
+    implementation libraries.rx2Android
+    implementation libraries.rx2Kotlin
+
+    // on-boarding
+    implementation 'com.codemybrainsout.onboarding:onboarder:1.0.4'
+
+
+    // Testing
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.1'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+}
