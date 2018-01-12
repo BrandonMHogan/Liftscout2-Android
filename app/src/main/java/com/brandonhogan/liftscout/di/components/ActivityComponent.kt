@@ -3,7 +3,7 @@ package com.brandonhogan.liftscout.di.components
 import com.brandonhogan.liftscout.di.modules.NavigationModule
 import com.brandonhogan.liftscout.di.schedulers.SchedulerProvider
 import com.brandonhogan.liftscout.di.scopes.ActivityScope
-import com.brandonhogan.liftscout.features.main.MainActivity
+import com.brandonhogan.liftscout.features.shared.main.MainActivity
 import com.brandonhogan.liftscout.managers.NavigationManager
 import dagger.Component
 

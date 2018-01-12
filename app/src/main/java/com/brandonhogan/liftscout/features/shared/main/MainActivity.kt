@@ -1,11 +1,10 @@
-package com.brandonhogan.liftscout.features.main
+package com.brandonhogan.liftscout.features.shared.main
 
 import android.arch.lifecycle.ViewModelProviders
 import android.os.Bundle
 import android.support.v4.app.FragmentManager
-import android.support.v7.app.AppCompatActivity
 import com.brandonhogan.liftscout.R
-import com.brandonhogan.liftscout.features.shared.BaseActivity
+import com.brandonhogan.liftscout.features.shared.base.BaseActivity
 import com.brandonhogan.liftscout.managers.NavigationManager
 import javax.inject.Inject
 

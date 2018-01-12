@@ -36,16 +36,12 @@ class NavigationManager @Inject constructor(var fragmentManager: FragmentManager
      */
     fun changeFragment(f: Fragment, cleanStack: Boolean = false, addFragment: Boolean = false) {
 
-        fragmentManager?.let {
-            it
-        }
-
-
         val ft = fragmentManager.beginTransaction()
 
         if (cleanStack) {
             clearBackStack()
         }
+
 //        ft.setCustomAnimations(
 //                R.anim.fade_in, R.anim.fade_out, R.anim.popup_enter, R.anim.popup_exit)
 

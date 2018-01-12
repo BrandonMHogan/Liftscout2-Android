@@ -2,15 +2,17 @@ package com.brandonhogan.liftscout.features.calendar
 
 import android.arch.lifecycle.ViewModelProviders
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import com.brandonhogan.liftscout.R
-import com.brandonhogan.liftscout.features.shared.BaseFragment
-import com.prolificinteractive.materialcalendarview.CalendarDay
-import com.prolificinteractive.materialcalendarview.CalendarMode
+import com.brandonhogan.liftscout.features.shared.base.BaseFragment
 import kotlinx.android.synthetic.main.frag_calendar.*
 
+/**
+ * @Creator         bhogan
+ * @Date            2018-01-10
+ * @Description     Displays the day to day exercises and routines in a week or month based
+ * display.
+ */
 
 class CalendarFragment : BaseFragment() {
 
@@ -26,35 +28,30 @@ class CalendarFragment : BaseFragment() {
         return inflater.inflate(R.layout.frag_calendar, container, false)
     }
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setHasOptionsMenu(true)
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         model = ViewModelProviders.of(this).get(CalendarViewModel::class.java)
+        model.setCalendar(calendar_view)
+    }
 
-        calendar_view.state().edit()
-                .setMinimumDate(CalendarDay.from(2014, 4, 3))
-                .setCalendarDisplayMode(CalendarMode.MONTHS)
-                .commit()
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater?) {
+        inflater?.inflate(R.menu.menu_calendar, menu)
+        super.onCreateOptionsMenu(menu, inflater)
+    }
 
-        model.calendarState = 0
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
 
-        button.setOnClickListener {
-
-            when(model.calendarState) {
-                0 -> {
-                    model.calendarState = 1
-                    calendar_view.state().edit()
-                            .setCalendarDisplayMode(CalendarMode.WEEKS)
-                            .commit()
-                }
-                else -> {
-                    model.calendarState = 0
-                    calendar_view.state().edit()
-                            .setCalendarDisplayMode(CalendarMode.MONTHS)
-                            .commit()
-
-                }
+        when(item?.itemId) {
+            R.id.action_calendar -> {
+                model.onCalendarToggle(calendar_view)
             }
         }
+        return super.onOptionsItemSelected(item)
     }
 }

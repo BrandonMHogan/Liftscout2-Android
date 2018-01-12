@@ -1,4 +1,4 @@
-package com.brandonhogan.liftscout.features.main
+package com.brandonhogan.liftscout.features.shared.main
 
 import android.arch.lifecycle.ViewModel
 

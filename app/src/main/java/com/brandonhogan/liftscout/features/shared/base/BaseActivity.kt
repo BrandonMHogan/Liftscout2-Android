@@ -1,4 +1,4 @@
-package com.brandonhogan.liftscout.features.shared
+package com.brandonhogan.liftscout.features.shared.base
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity

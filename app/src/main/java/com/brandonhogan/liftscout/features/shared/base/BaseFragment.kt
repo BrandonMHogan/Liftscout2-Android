@@ -1,4 +1,4 @@
-package com.brandonhogan.liftscout.features.shared
+package com.brandonhogan.liftscout.features.shared.base
 
 import android.support.v4.app.Fragment
 import io.reactivex.disposables.Disposable
