@@ -1,16 +1,14 @@
 package com.brandonhogan.liftscout.features.onboarding
 
+import android.content.Intent
 import android.os.Bundle
 import com.brandonhogan.liftscout.R
 import com.codemybrainsout.onboarder.AhoyOnboarderActivity
 import android.widget.Toast
-import android.graphics.Typeface
 import android.support.v4.content.ContextCompat
 import android.os.Build
+import com.brandonhogan.liftscout.features.calendar.CalendarFragment
 import com.codemybrainsout.onboarder.AhoyOnboarderCard
-
-
-
 
 
 /**
@@ -70,6 +68,11 @@ class OnBoardingActivity: AhoyOnboarderActivity() {
 
     override fun onFinishButtonPressed() {
         Toast.makeText(this, "Finish Pressed", Toast.LENGTH_SHORT).show()
+
+        val intent = Intent(this, CalendarFragment::class.java)
+        startActivity(intent)
+
+        finish()
     }
 
 }

@@ -3,6 +3,7 @@ package com.brandonhogan.liftscout.managers
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import com.brandonhogan.liftscout.R
+import com.brandonhogan.liftscout.features.calendar.CalendarFragment
 import io.reactivex.Observable
 import javax.inject.Inject
 
@@ -99,9 +100,9 @@ class NavigationManager @Inject constructor(var fragmentManager: FragmentManager
      * User data management
      */
 
-//    fun showSettings() {
-//        changeFragment(SettingsFragment.newInstance(), false)
-//    }
+    fun showCalendar() {
+        changeFragment(CalendarFragment.newInstance(), false)
+    }
 
 
 }
